@@ -158,9 +158,9 @@ watchedMoviesList.addEventListener("click", function(e) {
 function callRecc(){
     divRecMovies.textContent = "";
     if(document.body.clientWidth <= 991 && document.body.clientWidth >= 768){
-        for (let i = 0; i < 2; i++) aaa("../img/giphy.gif");
+        for (let i = 0; i < 2; i++) aaa("img/giphy.gif");
     }else if(document.body.clientWidth >= 991){
-        for (let i = 0; i < 3; i++) aaa("../img/giphy.gif");
+        for (let i = 0; i < 3; i++) aaa("img/giphy.gif");
     }
     recommendedMovie();
 }
@@ -172,7 +172,6 @@ function fillPage(obj){
     imgMovie.src = obj.url;
     genresMovie.textContent = obj.genres;
     describeMovie.textContent = setLimitDescribe(obj.describe);
-
     showWatchedMovies();
 }
 
@@ -238,11 +237,9 @@ crossWindowMovie.addEventListener("click", function(e) {
     input.value = "";
 });
 
-
 if(localStorage.getItem('watchedMovies') == null){
     localStorage.setItem('watchedMovies', JSON.stringify({}));
-    watchedMoviesTitle.textContent = "List of watched movies is empty";
-}else{
+}else if(localStorage.getItem('watchedMovies').length != 2){
     watchedMoviesTitle.textContent = "List of watched movies:";
     showWatchedMovies();
 }
@@ -270,11 +267,23 @@ function setLimitDescribe(str){
     if(document.body.clientWidth <= 580){
         return str;
     }else if(document.body.clientWidth <= 768){
-        if(str.length > 480) return str.slice(0, 480) + "...";
+        if(str.length > 480){
+            return str.slice(0, 480) + "...";
+        }else{
+            return str;
+        }
     }else if(document.body.clientWidth <= 992){
-        if(str.length > 402) return str.slice(0, 402) + "...";
+        if(str.length > 402){
+            return str.slice(0, 402) + "...";
+        }else{
+            return str;
+        }
     }else if(document.body.clientWidth <= 1170){
-        if(str.length > 655) return str.slice(0, 655) + "...";
+        if(str.length > 655){
+            return str.slice(0, 655) + "...";
+        }else{
+            return str;
+        }
     }else{
         if(str.length > 790){
             return str.slice(0, 790) + "...";
