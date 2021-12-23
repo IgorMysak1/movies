@@ -29,7 +29,7 @@ async function getDataAboutAllMovies(name){
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "imdb8.p.rapidapi.com",
-                "x-rapidapi-key": "b3c814e9eamsh2bef760b979f0bfp18c274jsnc937296c8d5d"
+                "x-rapidapi-key": "bd53622be4mshd5647b3e441286bp1f8273jsn5906123430a0"
             }
         })
         listOfMovies = await data.json();
@@ -48,7 +48,7 @@ async function getDataAboutMovie(id, type, rate = 0, adressChild){
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "imdb8.p.rapidapi.com",
-                "x-rapidapi-key": "b3c814e9eamsh2bef760b979f0bfp18c274jsnc937296c8d5d"
+                "x-rapidapi-key": "bd53622be4mshd5647b3e441286bp1f8273jsn5906123430a0"
             }
         })
         selectedMovie = await data.json();
@@ -78,7 +78,7 @@ async function recommendedMovie(){
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "imdb8.p.rapidapi.com",
-                "x-rapidapi-key": "b3c814e9eamsh2bef760b979f0bfp18c274jsnc937296c8d5d"
+                "x-rapidapi-key": "bd53622be4mshd5647b3e441286bp1f8273jsn5906123430a0"
             }
         })
         seriesMovie = await data.json();
@@ -104,7 +104,6 @@ function listenerEnter(event) {
     if(event.code == "Enter"){
         getDataAboutAllMovies(input.value);
         let lengthWord = input.value.length;
-        autoComplete.textContent = "";
         input.addEventListener("input", function (e) {
             if(input.value.length < lengthWord){
                 autoComplete.classList.remove('active');
@@ -115,6 +114,7 @@ function listenerEnter(event) {
 }
 
 function outputNameMovies(arr){
+    autoComplete.textContent = "";
     arr.forEach(element => {
         let div = document.createElement('div');
         div.textContent = element.l;
