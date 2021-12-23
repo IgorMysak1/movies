@@ -1014,9 +1014,12 @@ body.ie ._ibg img {
 .right-body__sub {
   font-size: 18px;
   padding: 20px 0px;
+  max-height: 220px;
+  overflow: hidden;
 }
 @media (max-width: 991.98px) {
   .right-body__sub {
+    max-height: 157px;
     font-size: 16px;
     padding: 10px 0px;
   }
@@ -1024,10 +1027,18 @@ body.ie ._ibg img {
 @media (max-width: 767.98px) {
   .right-body__sub {
     padding: 10px 0px;
+    max-height: 251px;
+  }
+}
+@media (max-width: 580px) {
+  .right-body__sub {
+    min-height: none;
+    overflow: visible;
   }
 }
 .right-body__rate {
   font-size: 20px;
+  padding-top: 10px;
 }
 .right-body__recommendations {
   display: flex;

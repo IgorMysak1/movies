@@ -123,17 +123,26 @@
     &__sub {
         font-size: 18px;
         padding: 20px 0px;
+        max-height: 220px;
+        overflow: hidden;
         @media (max-width: $md2) {
+            max-height: 157px;
             font-size: 16px;
             padding: 10px 0px;
         }
         @media (max-width: $md3) {
             padding: 10px 0px;
+            max-height: 251px;
+        }
+        @media (max-width: 580px) {
+            min-height: none;
+            overflow: visible;
         }
     }
 
     &__rate {
         font-size: 20px;
+        padding-top: 10px;
     }
     &__recommendations {
         display: flex;
